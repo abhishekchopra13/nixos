@@ -51,8 +51,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -86,6 +86,10 @@
     packages = with pkgs; [
       firefox
       thunderbird
+      discord
+      telegram-desktop
+      vmware-horizon-client
+      libsForQt5.kdeconnect-kde
     ];
   };
 
@@ -99,18 +103,27 @@
      wget
      git
      vscode
+     unzip
      google-chrome
      python3
      libgcc
+     glibc
      gnat13
      fprintd
-     discord
-     telegram-desktop
      capture
      strace
      pipx
      p3x-onenote
+     neofetch
+     jupyter-all
+     haruna
   ];
+  networking.firewall = { 
+    enable = true;
+    allowedTCPPortRanges = [ 
+      { from = 1714; to = 4747; } # KDE Connect and other stuff 
+    ];  
+  };
 
 #
 
@@ -121,11 +134,14 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
+    hardware.bluetooth.enable = true;
+    hardware.bluetooth.powerOnBoot = true;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+    services.openssh.enable = true;
+    # services.fprintd.tod.enable = true;
+    services.fprintd.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
