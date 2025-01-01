@@ -117,10 +117,17 @@
      neofetch
      jupyter-all
      haruna
+     teams-for-linux
+     gnumake
+     ruby
+     jekyll
   ];
   networking.firewall = { 
     enable = true;
     allowedTCPPortRanges = [ 
+      { from = 1714; to = 4747; } # KDE Connect and other stuff 
+    ];  
+    allowedUDPPortRanges = [ 
       { from = 1714; to = 4747; } # KDE Connect and other stuff 
     ];  
   };
