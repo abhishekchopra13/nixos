@@ -16,7 +16,14 @@ nixos-rebuild switch --upgrade
 nix-collect-garbage -d
 ```
 
-## Geration cleaning
+## Generations cleaning
 ```
 nix-env --delete-generations 30d
+```
+
+## EFI loaders removal
+```
+nix-collect-garbage --delete-old
+nixos-rebuild boot
+nixos-rebuild switch
 ```

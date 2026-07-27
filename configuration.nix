@@ -114,7 +114,8 @@
      vim 
      wget
      git
-     antigravity-fhs
+     antigravity-ide-fhs
+     vscode-fhs
      unzip
      google-chrome
      python3
@@ -124,15 +125,13 @@
      fprintd
      capture
      strace
-     pipx
+     # python312Packages.pipx
      p3x-onenote
-     neofetch
      jupyter-all
      haruna
      gnumake
      ruby
      jekyll
-     kitty
   ];
   networking.firewall = { 
     enable = true;
